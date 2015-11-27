@@ -1,0 +1,40 @@
+ {% extends "::layout.html.twig" %}
+ 
+  {% block cabecero_block %}
+  	 <img src="{{ asset('bundles/cursomain/images/logo.jpg') }}" width="50px"></img>
+  {% endblock %}
+    
+   
+ {% block ciudades_block %}
+<h2>Ciudades</h2>
+<ul>
+{% for ciudad in ciudades %} {# para cada elemento de "ciudades" del array pasado por ProductController.php#}
+<li>
+{{ ciudad.nombre }} {# para cada elemento le digo que me muestre su variable nombre, definido en la entidad Ciudad.php#}
+</li>
+{% endfor %}
+</ul>
+{% endblock %}
+    
+    
+    
+ {% block productos_block %}
+ <h2>Productos</h2>
+ <ul>
+{% for producto in productos %}
+<li>
+{#crear enlaces entre las distintas partes del symfony#}
+<a href="{{ path('curso_main_oneProd', {'id': producto.id}) }}"> 
+{# lo que hago es crear un enlace en cada nombre del producto, el enlace me dara información del producto #}
+{# meto entre llaves el path que viene definido por el nombre que tiene en el routing.yml #}
+{# meto el "id" porque como se ve en routing.yml, curso_main_oneProd necesita un identificados que pasarle #}
+{# esta acción la puedo hacer desde cualquier twig, no ha de estar necesariamente la plantilla en el bundle
+por ejemplo: puedo poner esto en la plantilla layout.html.twig. Esta esta ubicada en app/... y es general pero 
+la ación se reconoce por symfony porque la busca en el directorio #}
+{{ producto.nombre }} {# Para la variable producto le digo que me muestre la propiedad nombre #}
+</a>
+</li>
+{% endfor %}
+</ul>
+{% endblock %}
+    

@@ -1,0 +1,29 @@
+{% extends "::base.html.twig" %} 
+
+{% block title %}MRGeomatics - {{pueblo}}{% endblock %}
+
+{% block body %}
+<div class="container theme-showcase" role="main">
+	<div class="jumbotron">
+		<h1>MRGeomatics te acerca a {{ pueblo }}</h1>
+		<p>Descubre lo que podemos hacer por tu negocio en <a href="{{ path('mrg_principal') }}">MRGeomatics</a>.
+		<i class="fa fa-search-plus"></i></p>
+	</div>
+	<div class="page-header"><h1>Buttons</h1></div>
+	<div>
+		<p>
+			<button type="button" class="btn btn-lg btn-default">Default</button>
+			<button type="button" class="btn btn-lg btn-primary">Primary</button>
+			<button type="button" class="btn btn-lg btn-success">Success</button>
+			<button type="button" class="btn btn-lg btn-info">Info</button>
+		</p>
+	</div>
+	<div id="map" style="height: 400px">
+	</div>
+</div>
+{% endblock %}
+
+{% block javascripts %}
+	<script src="{{ asset('/bundles/leaflet/leaflet.js') }}"></script>
+	<script src="{{ asset('/bundles/mrgeomatics/js/geldo.js') }}"></script>
+{% endblock %}

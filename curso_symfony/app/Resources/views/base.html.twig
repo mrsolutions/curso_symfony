@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+{# Tengo un bloque para la cabecera, uno para los CSS, otro para el
+cuerpo y otro para el JS #}
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>
+{% block title %}MRGeomatics{% endblock %}
+</title>
+
+{% block stylesheets %} 
+{% stylesheets
+'bundles/bootstrap/css/bootstrap-theme.css'
+'bundles/bootstrap/css/bootstrap.css'
+'bundles/fontawesome/css/font-awesome.css' 
+'bundles/leaflet/leaflet.css' 
+'bundles/mrgeomatics/css/misestilos.css' filter = 'cssrewrite'%}
+<link rel='stylesheet' href="{{ asset_url }}" />
+{% endstylesheets %} 
+{% endblock %}
+
+{# <link rel="icon"type="image/x-icon" href="{{ asset('favicon.ico') }}" />#}
+</head>
+
+<body role="document">
+{# href= "{{ path('curso_main_homepage',{name:"HRGeomatics"})}}"#}
+<nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button class ="active">
+{#            <a class="navbar-brand" href= "{{ path('curso_main_homepage',{name:"HRGeomatics"})}}">HRGeomatics</a>#}
+          <a class="navbar-brand" href= "{{ path('mrg_principal')}}">MRGeomatics</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+          	<li><a href= "{{ path('mrg_empresa')}}">Empresa</a></li>
+            <li><a href= "{{ path('mrg_turismo')}}">Turismo</a></li>
+            <li><a href= "{{ path('mrg_contacto')}}">Contacto</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+
+	{% block body %} {% endblock %} 
+	
+	{% block javascripts %}
+	<script src="{{ asset('/bundles/bootstrap/js/bootstrap.js') }}"></script>
+	{% endblock %}
+</body>
+</html>

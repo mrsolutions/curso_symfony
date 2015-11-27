@@ -1,0 +1,80 @@
+curso_main_homepage:
+    path:     /hello/{name}
+    defaults: { _controller: CursoMainBundle:Default:index, name: Putaaa}
+    
+            
+mrg:
+    path:     /
+    defaults: { _controller: CursoMainBundle:Navbar:empresa }
+mrg_principal:
+    path:     /principal
+    defaults: { _controller: CursoMainBundle:Navbar:principal }
+        
+mrg_empresa:
+    path:     /empresa
+    defaults: { _controller: CursoMainBundle:Navbar:empresa }
+        
+mrg_turismo:
+    path:     /turismo/{pueblo}
+    defaults: { _controller: CursoMainBundle:Navbar:turismo, pueblo: Geldo }
+    
+mrg_contacto:
+    path:     /contacto
+    defaults: { _controller: CursoMainBundle:Navbar:contacto }
+    
+    
+    
+    
+    
+    
+curso_main_help:
+    path:     /ayuda/{tema}
+    defaults: { _controller: CursoMainBundle:Default:ayuda }
+    
+curso_main_nosotros:
+    path:     /nosotros/{nombre}/{apellidos}/{nacimiento}
+    defaults: { _controller: CursoMainBundle:Info:nosotros, nombre:Carlos, apellidos:Moros, nacimiento:ES }
+    
+curso_main_info:
+    path:     /info/{pagina}
+    defaults: { _controller: CursoMainBundle:Info:pagina_estatica, pagina:quien}
+    requirements:
+        
+  
+   
+        
+curso_main_addOneProd:
+    path:     /productos/addOne/{nombre}/{precio}
+    defaults: { _controller: CursoMainBundle:Product:addOne, nombre:anónimo, precio:10}
+    
+curso_main_allProd:
+    path:     /productos/all
+    defaults: { _controller: CursoMainBundle:Product:getAll}
+    
+curso_main_oneProd:
+    path:     /productos/detalle/{id}
+    defaults: { _controller: CursoMainBundle:Product:getById}
+    
+curso_main_oneProdByNombre:
+    path:     /productos/detalleByNombre/{nombre}
+    defaults: { _controller: CursoMainBundle:Product:getByNombre}
+    
+curso_main_updateProd:
+    path:     /productos/update/{id}/{nombre}/{precio}
+    defaults: { _controller: CursoMainBundle:Product:update}
+    
+curso_main_borraProd:
+    path:     /productos/delete/{id}
+    defaults: { _controller: CursoMainBundle:Product:delete}
+    
+
+    
+    
+    
+curso_main_newProd:
+    path:     /productos/nuevoProducto
+    defaults: { _controller: CursoMainBundle:Product:nuevoProducto }
+    
+curso_main_editProd:
+    path:     /productos/editProducto/{id}
+    defaults: { _controller: CursoMainBundle:Product:editProducto }

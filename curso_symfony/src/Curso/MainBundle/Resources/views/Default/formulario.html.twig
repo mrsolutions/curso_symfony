@@ -1,0 +1,35 @@
+ {% extends "::base.html.twig" %} {#extiende de la clase base#}
+ 
+  {% block title %}Formulario{% endblock %}
+ 
+  {% block stylesheets %}
+ <link href="{{ asset('css/estilosBase.css') }}" rel="stylesheet" type="text/css" />
+ {% endblock %}
+ 
+  {% block cabecero_block %}
+  	 <img src="{{ asset('bundles/cursomain/images/logo.jpg') }}" width="50px"></img>
+  {% endblock %}
+    
+    {% block body %}
+    {#{{ form(form) }}#}
+    {{ form_start(form) }}  {#indico que comienza la maquetación de un formulario "form"#}
+	<div class="form_error">{{ form_errors(form) }}</div>  {#seria para un error general#}
+	
+	<div class="form_bloque">
+	<div class="form_error">{{ form_errors(form.nombre) }}</div> {#si hay un error de validación va a decir donde esta#}
+	<div class="form_label">{{ form_label(form.nombre) }}</div> {#el nombre de la etiqueta#}
+	{#<div class="form_label">Halolapalusa</div> Aparecería Halolapalusa en vez del nombre #}
+	<div class="form_input">{{ form_widget(form.nombre) }}</div> {#el tipo de control relacionado para esa propiedad de formulario#}
+	</div>
+	
+	<div class="form_bloque">
+	<div class="form_error">{{ form_errors(form.precio) }}</div>
+	<div class="form_label">{{ form_label(form.precio) }}</div>
+	<div class="form_input">{{ form_widget(form.precio) }}</div>
+	</div>
+	
+	<div class="form_bloque">
+	{{ form_widget(form.Guardar) }} {#anyade el widget de guardar que es un botón porque en ProductoType.php es uno de tipo "submit" #}
+	</div>
+	{{ form_end(form) }}  {#acaba la maquetación del formulario "form"#}
+    {% endblock %}

@@ -1,0 +1,9 @@
+Curso\Mainbundle\Entity\Producto:
+    properties:
+        nombre:
+            - NotBlank: ~
+            - Length:
+                 min: 3
+            - Choice: { choices: [Camisa, Zapatos], message: Selecciona un producto válido. }
+        precio:
+            - NotBlank: ~

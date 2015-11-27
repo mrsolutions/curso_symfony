@@ -1,0 +1,26 @@
+ {% extends "::base.html.twig" %}
+
+ 
+ {% block title %}Productos{% endblock %}
+ 
+ {% block stylesheets %}
+ <link href="{{ asset('css/estilosBase.css') }}" rel="stylesheet" type="text/css" />
+ {% endblock %}
+ 
+{% block body %}
+{# <a href="{{ path('curso_main_oneProd', {'id': 4}) }}">Producto 1</a> #}
+ <div id="cabecero_block">
+    {% block cabecero_block %}
+    {% endblock %}
+</div>
+<div id="dos_cols">
+    <div id="ciudades_block">
+    {% block ciudades_block %}
+    {% endblock %}
+    </div>
+    <div id="productos_block">
+    {% block productos_block %}
+    {% endblock %}
+    </div>
+</div>
+{% endblock %}
